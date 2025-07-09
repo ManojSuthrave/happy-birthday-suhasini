@@ -18,6 +18,17 @@
 			<source src="img/aud.mp3" type="audio/mpeg" />
 			Your browser does not support the audio element.
 		</audio>
+		<script>
+			window.addEventListener("click", function playMusicOnce() {
+				const audio = document.getElementById("bg-music");
+				if (audio) {
+					audio.play().catch((e) => {
+						console.log("Autoplay failed:", e);
+					});
+					window.removeEventListener("click", playMusicOnce);
+				}
+			});
+		</script>
 		<div class="container">
 			<div class="one">
 				<h1 class="one">
